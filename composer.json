@@ -24,7 +24,8 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "Snigdho\\CurrencyExchange\\": "packages/snigdho/currency-exchanger/src/"
         }
     },
     "autoload-dev": {

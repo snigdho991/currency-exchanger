@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('currency/{amount}/{currency}', function(Snigdho\CurrencyExchange\CurrencyExchange $currency) {
+    return $currency->currency_converter(9, 'USD');
+});

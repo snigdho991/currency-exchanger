@@ -185,6 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Snigdho\CurrencyExchange\Providers\CurrencyExchangerProvider::class,
 
         /*
          * Application Service Providers...
