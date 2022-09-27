@@ -1,9 +1,7 @@
 
-## About This Package
+## About This Project
 
-- To install the package run the following command:
-
-composer require snigdho/currency-exchanger
+- It's the full project. To install currency-exchanger package go to the link (https://github.com/snigdho991/currency-exchange-package)
 
 
 ## License
