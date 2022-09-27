@@ -3,10 +3,11 @@
 namespace Snigdho\CurrencyExchange;
 
 use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Request;
 
 class CurrencyExchange {
-    public function currency_converter($amount, $currency) {
-        
+    public function CurrencyConverter($amount, $currency) {
+
         $xmlString = file_get_contents('https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml');
         $xmlObject = simplexml_load_string($xmlString);
                 
@@ -15,30 +16,30 @@ class CurrencyExchange {
 
         $attrs = [];
         $a_two = [];
-        $a_three = [];
+
+        $total = '';
+
 
         foreach ($array['Cube'] as $key => $value) {
             $attrs[$key] = $value;
 
-            foreach($attrs[$key] as $k => $v) {
-                $a_two[$k] = $v;
+            $single = array_reduce($array['Cube'], 'array_merge', array());
+            $a_two  = array_column($single['Cube'], '@attributes');
 
-            }
         }
 
-        foreach($a_two['Cube'] as $k_two => $v_two) {
-            $a_three[$k_two] = $v_two;
-        }
 
-        $a_three = array_map('current', $a_three);
-
-        foreach($a_three as $check_currency) {
-            if($check_currency['currency'] == $currency) {
+        foreach($a_two as $check_currency) {
+                
+            if ($check_currency['currency'] == strtoupper($currency)) {
                 $total = $amount * $check_currency['rate'];
             }
+
+
         }
 
-        dd($total);
+        return $total;
+
 
     }
 }
