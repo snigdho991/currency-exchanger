@@ -8,11 +8,30 @@ use Illuminate\Http\Request;
 class CurrencyExchange {
     public function CurrencyConverter($amount, $currency) {
 
-        $xmlString = file_get_contents('https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml');
+        // $xmlString = file_get_contents('https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml');
+        // $xmlObject = simplexml_load_string($xmlString);
+                
+        // $json = json_encode($xmlObject);
+        // $array = json_decode($json, true);
+
+
+        $url = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml';
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL,$url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, Array("User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.15) Gecko/20080623 Firefox/2.0.0.15") ); 
+
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $xmlString = curl_exec ($ch);
+        curl_close ($ch);
         $xmlObject = simplexml_load_string($xmlString);
                 
         $json = json_encode($xmlObject);
         $array = json_decode($json, true);
+
 
         $attrs = [];
         $a_two = [];
