@@ -1,0 +1,20 @@
+{
+    "name": "snigdho/currency-exchanger",
+    "autoload": {
+        "psr-4": {
+            "Snigdho\\CurrencyExchange\\": "src/"
+        }
+    },
+    "description": "Currency Exchanger Package for Laravel",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Snigdho"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "^7.0.1"
+    }
+}
