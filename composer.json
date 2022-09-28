@@ -25,6 +25,7 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
+            "Snigdho\\CurrencyExchange\\Tests\\": "packages/snigdho/currency-exchanger/src/tests/",
             "Snigdho\\CurrencyExchange\\": "packages/snigdho/currency-exchanger/src/"
         }
     },

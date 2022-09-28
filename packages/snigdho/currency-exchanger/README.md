@@ -3,7 +3,7 @@
 
 - To install the package run the following command:
 
-composer require snigdho/currency-exchanger
+- composer require snigdho/currency-exchanger
 
 
 ## License
